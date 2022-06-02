@@ -13,7 +13,7 @@ class Repository {
       return null;
     }
     final decodeddata = jsonDecode(result.body);
-    print(Weather.fromJson(decodeddata).cityname);
+ 
     return Weather.fromJson(decodeddata);
   }
 }
