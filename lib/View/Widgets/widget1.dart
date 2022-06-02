@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weatherapi/bloc/weather_bloc.dart';
 
 import '../../Model/weathermodel.dart';
 import '../../Network/Networkfile.dart';
@@ -36,8 +38,9 @@ class Searchbar extends StatelessWidget {
       child: TextField(
         controller: searchController,
         textAlign: TextAlign.center,
-        onChanged: (value) {
-          Repository().getdata(location: searchController.text);
+        onSubmitted: (value) {
+         context.read<WeatherBloc>().add(loadWeatherDataEvent(
+                      location: searchController.text));
         },
         style: TextStyle(fontSize: 14, color: accentColor),
         decoration: InputDecoration(

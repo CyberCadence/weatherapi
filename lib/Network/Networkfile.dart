@@ -6,7 +6,7 @@ import 'package:weatherapi/Model/weathermodel.dart';
 class Repository {
   Future<Weather?> getdata({required String location}) async {
     String url =
-        'https://api.openweathermap.org/data/2.5/weather?q=$location&appid=c1b66d13f980552b4cdd1123f5c20c72#';
+        'https://api.openweathermap.org/data/2.5/weather?q=$location&units=metric&appid=c1b66d13f980552b4cdd1123f5c20c72#';
 
     final result = await http.get(Uri.parse(url));
     if (result.statusCode != 200) {
